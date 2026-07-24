@@ -57,9 +57,10 @@ export default async function RachnaPage({ params }) {
         <p className="mt-2 text-sm text-zinc-500">{rachna.author}</p>
       )}
 
-      <div className="mt-8 whitespace-pre-line text-lg leading-9 text-zinc-800">
-        {rachna.content}
-      </div>
+      <div
+        className="mt-8 text-lg leading-9 text-zinc-800"
+        dangerouslySetInnerHTML={{ __html: rachna.content }}
+      />
     </article>
   );
 }
