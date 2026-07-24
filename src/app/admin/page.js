@@ -5,6 +5,8 @@ import { posts } from "@/db/schema";
 import { sections } from "@/lib/sections";
 import { deletePost } from "@/lib/actions";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminHome() {
   const rachnaen = await db.select().from(posts).orderBy(desc(posts.createdAt));
 
