@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "साहित्य सृजन व संवाद",
+  title: "साहित्य सृजन संवाद",
   description: "कला संस्कृति चिंतन का पोर्टल",
 };
 

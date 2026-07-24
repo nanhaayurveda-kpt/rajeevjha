@@ -7,7 +7,7 @@ export default function Header() {
       <div className="max-w-5xl mx-auto px-4 py-6">
         <Link href="/" className="block text-center">
           <h1 className="text-3xl font-bold text-amber-700">
-            साहित्य सृजन व संवाद
+            साहित्य सृजन संवाद
           </h1>
           <p className="mt-1 text-sm text-zinc-400">
             कला संस्कृति चिंतन का पोर्टल

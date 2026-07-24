@@ -10,8 +10,9 @@ export default function Footer() {
         </p>
 
         <div className="mt-6 text-sm leading-7">
-          <p>
-            <span className="text-zinc-500">संपादक:</span> राजीव कुमार झा
+        <p>
+            <span className="text-zinc-500">संपादक:</span>{" "}
+            <span className="font-extrabold text-purple-400">राजीव कुमार झा</span>
           </p>
           <p>
             <span className="text-zinc-500">संपर्क:</span> इंदुपुर, पोस्ट:
@@ -24,7 +25,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-zinc-700 pt-4 text-xs text-zinc-500">
           <p>
-            © {new Date().getFullYear()} साहित्य सृजन व संवाद। सर्वाधिकार
+            © {new Date().getFullYear()} साहित्य सृजन संवाद। सर्वाधिकार
             सुरक्षित।
           </p>
           <p className="mt-1">
