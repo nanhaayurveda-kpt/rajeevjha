@@ -6,7 +6,12 @@ export default function Header() {
     <header className="bg-zinc-900">
       <div className="max-w-5xl mx-auto px-4 py-6">
         <Link href="/" className="block text-center">
-          <h1 className="text-3xl font-bold text-amber-700">
+          <img
+            src="/logo.jpeg"
+            alt="साहित्य सृजन संवाद"
+            className="mx-auto h-20 w-auto"
+          />
+          <h1 className="mt-2 text-3xl font-bold text-amber-700">
             साहित्य सृजन संवाद
           </h1>
           <p className="mt-1 text-sm text-zinc-400">
