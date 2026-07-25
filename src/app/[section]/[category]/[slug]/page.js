@@ -61,7 +61,7 @@ export default async function RachnaPage({ params }) {
             <img
               src={rachna.authorPhoto}
               alt={rachna.author || ""}
-              className="h-12 w-12 rounded-full object-cover"
+              className="h-24 w-24 rounded-full object-cover"
             />
           )}
           {rachna.author && (
