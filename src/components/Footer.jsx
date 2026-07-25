@@ -3,10 +3,10 @@ export default function Footer() {
     <footer className="bg-zinc-900 text-zinc-300">
       <div className="max-w-5xl mx-auto px-4 py-10 text-center">
         <h2 className="text-2xl font-bold text-amber-600">
-          साहित्य सृजन व संवाद
+          साहित्य सृजन संवाद
         </h2>
         <p className="mt-1 text-sm text-zinc-400">
-          कला संस्कृति चिंतन का पोर्टल!
+          कला संस्कृति चिंतन का पोर्टल
         </p>
 
         <div className="mt-6 text-sm leading-7">

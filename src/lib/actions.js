@@ -54,3 +54,16 @@ export async function deletePost(formData) {
   revalidatePath("/");
   revalidatePath("/admin");
 }
+
+export async function togglePublish(formData) {
+  const id = formData.get("id");
+  const current = formData.get("current") === "true";
+
+  await db
+    .update(posts)
+    .set({ isPublished: !current })
+    .where(eq(posts.id, id));
+
+  revalidatePath("/");
+  revalidatePath("/admin");
+}
