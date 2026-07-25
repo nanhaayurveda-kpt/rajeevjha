@@ -129,22 +129,24 @@ export default function RachnaForm({ action, rachna }) {
 
       <RichEditor name="content" defaultValue={rachna?.content || ""} />
 
-      <label className="flex items-center gap-2 text-sm font-bold text-zinc-700">
-        <input
-          type="checkbox"
-          name="isPublished"
-          defaultChecked={rachna ? rachna.isPublished : true}
-          className="h-4 w-4"
-        />
-        प्रकाशित करें
-      </label>
-
-      <button
-        type="submit"
-        className="rounded-xl bg-pink-600 px-8 py-3 font-bold text-white shadow-lg shadow-pink-600/30 hover:bg-pink-700"
-      >
-        सहेजें
-      </button>
+      <div className="flex gap-3">
+        <button
+          type="submit"
+          name="intent"
+          value="draft"
+          className="rounded-xl bg-zinc-200 px-8 py-3 font-bold text-zinc-800 hover:bg-zinc-300"
+        >
+          सहेजें (मसौदा)
+        </button>
+        <button
+          type="submit"
+          name="intent"
+          value="publish"
+          className="rounded-xl bg-pink-600 px-8 py-3 font-bold text-white shadow-lg shadow-pink-600/30 hover:bg-pink-700"
+        >
+          प्रकाशित करें
+        </button>
+      </div>
     </form>
   );
 }

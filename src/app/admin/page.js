@@ -25,28 +25,28 @@ export default async function AdminHome() {
         <h1 className="text-3xl font-black text-zinc-900">सभी रचनाएँ</h1>
         <Link
           href="/admin/nayi-rachna"
-          className="rounded-xl bg-pink-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-pink-600/30 hover:bg-pink-700"
+          className="rounded-xl bg-pink-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-pink-700"
         >
           + नई रचना
         </Link>
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-800 p-6 text-white shadow-lg">
-          <p className="text-sm font-semibold text-indigo-100">कुल रचनाएँ</p>
+        <div className="rounded-2xl bg-indigo-700 p-6 text-white">
+          <p className="text-sm font-semibold">कुल रचनाएँ</p>
           <p className="mt-2 text-4xl font-black">{rachnaen.length}</p>
         </div>
-        <div className="rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 p-6 text-white shadow-lg">
-          <p className="text-sm font-semibold text-emerald-100">प्रकाशित</p>
+        <div className="rounded-2xl bg-emerald-600 p-6 text-white">
+          <p className="text-sm font-semibold">प्रकाशित</p>
           <p className="mt-2 text-4xl font-black">{prakashit}</p>
         </div>
-        <div className="rounded-2xl bg-gradient-to-br from-amber-500 to-orange-700 p-6 text-white shadow-lg">
-          <p className="text-sm font-semibold text-amber-100">मसौदा</p>
+        <div className="rounded-2xl bg-amber-600 p-6 text-white">
+          <p className="text-sm font-semibold">मसौदा</p>
           <p className="mt-2 text-4xl font-black">{masauda}</p>
         </div>
       </div>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border-2 border-zinc-200 bg-white shadow-lg">
+      <div className="mt-8 overflow-hidden rounded-2xl border-2 border-zinc-200 bg-white">
         {rachnaen.length === 0 ? (
           <p className="p-12 text-center text-lg font-semibold text-zinc-400">
             अभी कोई रचना नहीं है।

@@ -24,7 +24,7 @@ function readForm(formData) {
     youtubeUrl: formData.get("youtubeUrl"),
     gallery,
     content: formData.get("content"),
-    isPublished: formData.get("isPublished") === "on",
+    isPublished: formData.get("intent") === "publish",
   };
 }
 
@@ -59,10 +59,7 @@ export async function togglePublish(formData) {
   const id = formData.get("id");
   const current = formData.get("current") === "true";
 
-  await db
-    .update(posts)
-    .set({ isPublished: !current })
-    .where(eq(posts.id, id));
+  await db.update(posts).set({ isPublished: !current }).where(eq(posts.id, id));
 
   revalidatePath("/");
   revalidatePath("/admin");
