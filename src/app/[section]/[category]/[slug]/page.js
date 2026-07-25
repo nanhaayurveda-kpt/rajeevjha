@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
@@ -58,11 +59,15 @@ export default async function RachnaPage({ params }) {
       {(rachna.author || rachna.authorPhoto) && (
         <div className="mt-4 flex items-center gap-3">
           {rachna.authorPhoto && (
-            <img
-              src={rachna.authorPhoto}
-              alt={rachna.author || ""}
-              className="h-48 w-48 object-cover"
-            />
+            <div className="relative h-48 w-48 overflow-hidden">
+              <Image
+                src={rachna.authorPhoto}
+                alt={rachna.author || ""}
+                fill
+                sizes="192px"
+                className="object-cover"
+              />
+            </div>
           )}
           {rachna.author && (
             <p className="text-sm font-semibold text-zinc-700">
@@ -73,11 +78,16 @@ export default async function RachnaPage({ params }) {
       )}
 
       {rachna.featuredImage && (
-        <img
-          src={rachna.featuredImage}
-          alt={rachna.title}
-          className="mt-6 w-full rounded-xl object-cover"
-        />
+        <div className="relative mt-6 aspect-video w-full overflow-hidden rounded-xl">
+          <Image
+            src={rachna.featuredImage}
+            alt={rachna.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover"
+            priority
+          />
+        </div>
       )}
 
       <div
@@ -99,12 +109,18 @@ export default async function RachnaPage({ params }) {
       {gallery.length > 0 && (
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
           {gallery.map((url) => (
-            <img
+            <div
               key={url}
-              src={url}
-              alt=""
-              className="h-40 w-full rounded-lg object-cover"
-            />
+              className="relative h-40 w-full overflow-hidden rounded-lg"
+            >
+              <Image
+                src={url}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </div>
           ))}
         </div>
       )}
