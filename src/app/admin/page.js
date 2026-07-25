@@ -3,7 +3,7 @@ import { desc } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { posts } from "@/db/schema";
 import { sections } from "@/lib/sections";
-import { deletePost } from "@/lib/actions";
+import { deletePost, togglePublish } from "@/lib/actions";
 
 export const dynamic = "force-dynamic";
 
@@ -84,12 +84,28 @@ export default async function AdminHome() {
                 </div>
 
                 <div className="flex shrink-0 items-center gap-2 text-sm">
+                  <form action={togglePublish}>
+                    <input type="hidden" name="id" value={rachna.id} />
+                    <input
+                      type="hidden"
+                      name="current"
+                      value={String(rachna.isPublished)}
+                    />
+                    <button
+                      type="submit"
+                      className="rounded-lg bg-zinc-100 px-3 py-1.5 font-bold text-zinc-700 hover:bg-zinc-200"
+                    >
+                      {rachna.isPublished ? "मसौदा करें" : "प्रकाशित करें"}
+                    </button>
+                  </form>
+
                   <Link
                     href={`/admin/rachna/${rachna.id}`}
                     className="rounded-lg bg-pink-100 px-3 py-1.5 font-bold text-pink-700 hover:bg-pink-200"
                   >
                     संपादन
                   </Link>
+
                   <form action={deletePost}>
                     <input type="hidden" name="id" value={rachna.id} />
                     <button
