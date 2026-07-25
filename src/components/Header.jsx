@@ -7,7 +7,7 @@ export default function Header() {
       <div className="max-w-5xl mx-auto px-4 py-6">
         <Link href="/" className="block text-center">
           <img
-            src="/logo.jpeg"
+            src="/logo.jpg"
             alt="साहित्य सृजन संवाद"
             className="mx-auto h-20 w-auto"
           />
