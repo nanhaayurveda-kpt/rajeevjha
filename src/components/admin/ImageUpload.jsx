@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 export default function ImageUpload({ name, label, defaultValue = "", multiple = false }) {
   const [urls, setUrls] = useState(
@@ -69,7 +68,7 @@ export default function ImageUpload({ name, label, defaultValue = "", multiple =
         <div className="mt-3 flex flex-wrap gap-2">
           {urls.map((url) => (
             <div key={url} className="relative">
-              <Image
+              <img
                 src={url}
                 alt=""
                 width={80}
