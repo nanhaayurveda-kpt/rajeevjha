@@ -9,6 +9,10 @@ export const posts = sqliteTable("posts", {
   section: text("section").notNull(),
   category: text("category").notNull(),
   author: text("author"),
+  authorPhoto: text("author_photo"),
+  featuredImage: text("featured_image"),
+  gallery: text("gallery", { mode: "json" }).default([]),
+  youtubeUrl: text("youtube_url"),
   excerpt: text("excerpt"),
   content: text("content").notNull(),
   isPublished: integer("is_published", { mode: "boolean" })
