@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: rachna.title,
-    description: rachna.excerpt || rachna.title,
+    description: rachna.title,
   };
 }
 
@@ -41,6 +42,8 @@ export default async function RachnaPage({ params }) {
     (c) => c.slug === category,
   );
 
+  const gallery = Array.isArray(rachna.gallery) ? rachna.gallery : [];
+
   return (
     <article className="max-w-3xl mx-auto px-4 py-10">
       <p className="text-sm text-pink-600">
@@ -53,13 +56,65 @@ export default async function RachnaPage({ params }) {
         {rachna.title}
       </h1>
 
-      {rachna.author && (
-        <p className="mt-2 text-sm text-zinc-500">{rachna.author}</p>
+      {(rachna.author || rachna.authorPhoto) && (
+        <div className="mt-4 flex items-center gap-3">
+          {rachna.authorPhoto && (
+            <Image
+              src={rachna.authorPhoto}
+              alt={rachna.author || ""}
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full object-cover"
+            />
+          )}
+          {rachna.author && (
+            <p className="text-sm font-semibold text-zinc-700">
+              {rachna.author}
+            </p>
+          )}
+        </div>
       )}
 
-      <div className="mt-8 whitespace-pre-line text-lg leading-9 text-zinc-800">
-        {rachna.content}
-      </div>
+      {rachna.featuredImage && (
+        <Image
+          src={rachna.featuredImage}
+          alt={rachna.title}
+          width={1200}
+          height={675}
+          className="mt-6 w-full rounded-xl object-cover"
+        />
+      )}
+
+      <div
+        className="mt-8 text-lg leading-9 text-zinc-800 whitespace-pre-line"
+        dangerouslySetInnerHTML={{ __html: rachna.content }}
+      />
+
+      {rachna.youtubeUrl && (
+        <div className="mt-8 aspect-video">
+          <iframe
+            src={rachna.youtubeUrl.replace("watch?v=", "embed/")}
+            title="वीडियो"
+            allowFullScreen
+            className="h-full w-full rounded-xl"
+          />
+        </div>
+      )}
+
+      {gallery.length > 0 && (
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {gallery.map((url) => (
+            <Image
+              key={url}
+              src={url}
+              alt=""
+              width={400}
+              height={400}
+              className="h-40 w-full rounded-lg object-cover"
+            />
+          ))}
+        </div>
+      )}
     </article>
   );
 }
