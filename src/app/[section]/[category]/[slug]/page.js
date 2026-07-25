@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
@@ -59,11 +58,9 @@ export default async function RachnaPage({ params }) {
       {(rachna.author || rachna.authorPhoto) && (
         <div className="mt-4 flex items-center gap-3">
           {rachna.authorPhoto && (
-            <Image
+            <img
               src={rachna.authorPhoto}
               alt={rachna.author || ""}
-              width={48}
-              height={48}
               className="h-12 w-12 rounded-full object-cover"
             />
           )}
@@ -76,17 +73,15 @@ export default async function RachnaPage({ params }) {
       )}
 
       {rachna.featuredImage && (
-        <Image
+        <img
           src={rachna.featuredImage}
           alt={rachna.title}
-          width={1200}
-          height={675}
           className="mt-6 w-full rounded-xl object-cover"
         />
       )}
 
       <div
-        className="mt-8 text-lg leading-9 text-zinc-800 whitespace-pre-line"
+        className="mt-8 text-lg leading-9 text-zinc-800"
         dangerouslySetInnerHTML={{ __html: rachna.content }}
       />
 
@@ -104,12 +99,10 @@ export default async function RachnaPage({ params }) {
       {gallery.length > 0 && (
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
           {gallery.map((url) => (
-            <Image
+            <img
               key={url}
               src={url}
               alt=""
-              width={400}
-              height={400}
               className="h-40 w-full rounded-lg object-cover"
             />
           ))}
